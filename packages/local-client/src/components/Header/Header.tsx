@@ -15,7 +15,7 @@ const Header: React.FC = () => {
           withContent={true}
           title={title}
           text={contenctText}
-          titleColor="orange"
+          titleColor="titleColor"
         />
       </HeaderLeftCard>
       <HeaderRightCard>

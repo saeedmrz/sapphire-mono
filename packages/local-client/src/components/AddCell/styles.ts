@@ -25,5 +25,5 @@ export const Divider = styled.div`
   height: 2px;
   width: 100%;
   border-radius: 1rem;
-  background-color: ${colors.yellow};
+  background-color: ${colors.orange};
 `;

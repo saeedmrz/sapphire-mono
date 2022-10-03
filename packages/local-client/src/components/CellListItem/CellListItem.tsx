@@ -3,6 +3,7 @@ import { Cell } from "state";
 import CodeCell from "../CodeCell/CodeCell";
 import TextEditor from "../TextEditor/TextEditor";
 import ActionBar from "../ActionBar/ActionBar";
+import { CellItem } from "./styles";
 
 interface CellListItemProps {
   cell: Cell;
@@ -28,7 +29,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
     );
   }
 
-  return <div className="cell-list-item">{child}</div>;
+  return <CellItem>{child}</CellItem>;
 };
 
 export default CellListItem;

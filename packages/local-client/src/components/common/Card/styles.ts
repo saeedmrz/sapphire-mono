@@ -9,7 +9,7 @@ interface CardProps {
 const cardVariants = {
   large: `
           height: ${rem(17)};
-          width: ${rem(100)};
+          width: 70vw;
           `,
   small: `
       height: ${rem(17)};
@@ -19,18 +19,20 @@ const cardVariants = {
 
 export const CardDiv = styled.div<CardProps>`
   position: relative;
-  background-color: ${(props) => colors[props.bgColor as keyof typeof colors]};
-  ${border({ radius: px(10) })};
+  ${border({
+    style: "solid",
+    radius: px(10),
+    width: 1,
+    color: colors.borderColor,
+  })};
   ${(props) => cardVariants[props.variant as keyof typeof cardVariants]};
 `;
 
 export const CardContent = styled.div`
   position: absolute;
-  right: 0;
-  background-color: ${colors.white};
+  left: 0;
   height: 100%;
-  width: 80%;
-  ${border({ radius: `0 ${px(10)} ${px(10)} 0` })};
+  width: 90%;
 `;
 
 interface CardContentTitleProps {
@@ -38,12 +40,12 @@ interface CardContentTitleProps {
 }
 export const CardContentTitle = styled.h1<CardContentTitleProps>`
   margin: ${px(10)};
-  color: ${(props) => props.titleColor};
-  ${font({ fontSize: px(fontSizes.title) })}
+  color: ${(props) => colors[props.titleColor as keyof typeof colors]};
+  ${font({ fontSize: px(fontSizes.title), weight: "bold" })}
 `;
 
 export const CardContentText = styled.p`
-  margin: ${px(10)} ${rem(1.5)};
+  margin: ${px(10)};
   color: ${colors.text};
   ${font({ fontSize: px(fontSizes.medium) })}
 `;

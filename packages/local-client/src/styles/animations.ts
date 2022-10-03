@@ -24,3 +24,9 @@ export const headRightCardAnim = keyframes`
         transform:translateY(0) scale(1);
     }
 `;
+
+export const cellItemAnim = keyframes`
+    100% {
+        transform: scaleY(1);
+    }
+`;

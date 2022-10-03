@@ -11,14 +11,16 @@ export const spacing = {
 };
 
 export const colors = {
-  primary: "hsl(179, 46%, 64%)",
+  primary: "#78AF9F",
   primaryDark: "hsl(179, 46%, 54%)",
-  orange: "hsl(14, 97%, 71%)",
+  orange: "#D36E2D",
   yellow: "hsl(34, 96%, 70%)",
   yellowDark: "hsl(34, 96%, 65%)",
   purple: "hsl(268, 38%, 69%)",
-  backColor: "hsl(0, 0%, 93%)",
-  text: "#545454",
+  backColor: "#584b4f",
+  titleColor: "#ffd152",
+  borderColor: "#4e4b4d",
+  text: "#efdab9",
   white: "#ffffff",
   black: "#000000",
 };
@@ -39,10 +41,6 @@ export const fonts = {
 //---------- body Style ----------//
 
 export const bodyStyle = css`
-  // This defines what 1 rem = 10px; 10px/16px = 62.5%
-  * {
-    font-size: 62.5%;
-  }
   body {
     padding: 0.5rem;
     margin: 0px;
@@ -58,7 +56,12 @@ export const Main = styled.div`
   border-radius: 1rem;
   height: max-content;
   min-height: 88vh;
-  background-color: ${colors.purple};
+  background-image: radial-gradient(
+    ellipse closest-side at 50% 50%,
+    #3a3f45,
+    #37383c 25%,
+    #343233
+  );
   z-index: -10;
 `;
 
@@ -95,13 +98,13 @@ export const border = ({
   style,
   radius,
 }: {
-  width?: string;
+  width?: number;
   color?: string;
   style?: string;
   radius?: string;
 }) => `
   ${style ? `border-style:${style};` : ""}
-  ${width ? `border-width:${width};` : ""}
+  ${width ? `border-width:${px(width)};` : ""}
   ${color ? `border-color:${color};` : ""}
   ${radius ? `border-radius:${radius};` : ""}
 `;
