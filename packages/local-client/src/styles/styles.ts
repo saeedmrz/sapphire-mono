@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled/macro";
 import { css } from "@emotion/react";
 
 //---------- Variables ----------//
@@ -11,23 +11,23 @@ export const spacing = {
 };
 
 export const colors = {
-  primary: "#ff7f2a",
-  primaryDark: "#e67b32",
-  title: "#545454",
+  primary: "hsl(179, 46%, 64%)",
+  primaryDark: "hsl(179, 46%, 54%)",
+  orange: "hsl(14, 97%, 71%)",
+  yellow: "hsl(34, 96%, 70%)",
+  yellowDark: "hsl(34, 96%, 65%)",
+  purple: "hsl(268, 38%, 69%)",
+  backColor: "hsl(0, 0%, 93%)",
+  text: "#545454",
   white: "#ffffff",
   black: "#000000",
-  red: "#e15554",
-  grey: "#cecece",
-  greyDark: "#666",
-  greyLight: "#eee",
-  greyHolder: "#707070",
-  blizzardBlue: "#9fe7f5",
 };
 
 export const fontSizes = {
   small: 11,
-  medium: 13,
-  large: 16,
+  medium: 14,
+  large: 18,
+  title: 24,
 };
 
 export const fonts = {
@@ -44,13 +44,28 @@ export const bodyStyle = css`
     font-size: 62.5%;
   }
   body {
-    padding: 2rem;
+    padding: 0.5rem;
     margin: 0px;
     font-family: ${fonts.normal};
+    background-color: ${colors.backColor};
   }
 `;
 
+//---------- Main div ----------//
+export const Main = styled.div`
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  height: max-content;
+  min-height: 88vh;
+  background-color: ${colors.purple};
+  z-index: -10;
+`;
+
 //---------- Functions (helps to style css in styles files easily) ----------//
+
+export const rem = (value: number) => `${value}rem`;
+export const px = (value: number) => `${value}px`;
 
 export const boxShadow = ({
   hOffset,
@@ -85,7 +100,7 @@ export const border = ({
   style?: string;
   radius?: string;
 }) => `
-  border-style:${style};
+  ${style ? `border-style:${style};` : ""}
   ${width ? `border-width:${width};` : ""}
   ${color ? `border-color:${color};` : ""}
   ${radius ? `border-radius:${radius};` : ""}
@@ -143,6 +158,7 @@ export const flex = ({
   grow,
   wrap,
   shrink,
+  gap,
 }: {
   direction?: string;
   align?: string;
@@ -150,6 +166,7 @@ export const flex = ({
   grow?: string;
   wrap?: string;
   shrink?: string;
+  gap?: number;
 }) => css`
   display: flex !important;
   ${direction &&
@@ -161,6 +178,7 @@ export const flex = ({
   ${grow && `flex-grow: ${grow} !important;`}
   ${wrap && `flex-wrap: ${wrap} !important;`}
   ${shrink && `flex-shrink: ${shrink} !important;`}
+  ${gap && `gap: ${px(gap)} !important;`}
 `;
 
 export const text = ({

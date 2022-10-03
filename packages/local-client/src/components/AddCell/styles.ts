@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled/macro";
+import { colors, fontSizes, font, rem, px, border, flex } from "styles/styles";
 
 interface CellProps {
   forceVisible: boolean | undefined;
@@ -6,7 +7,9 @@ interface CellProps {
 
 export const AddCellDiv = styled.div<CellProps>`
   display: flex;
+  position: relative;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   position: relative;
   opacity: ${(props) => (props.forceVisible ? "1" : "0")};
@@ -19,12 +22,8 @@ export const AddCellDiv = styled.div<CellProps>`
 `;
 
 export const Divider = styled.div`
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-  right: 2.5%;
-  left: 2.5%;
-  border-bottom: 1px solid gray;
-  width: 95%;
-  z-index: -1;
+  height: 2px;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: ${colors.yellow};
 `;
