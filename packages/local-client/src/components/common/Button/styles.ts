@@ -26,6 +26,16 @@ const buttonVariants = {
       background: ${colors.yellowDark};
     }
     `,
+
+  iconic: `
+    padding: ${rem(0.5)} ${rem(0.5)};
+    ${border({ radius: rem(0.5) })};
+    background: ${colors.yellow};
+    transition: all .2s;
+    &: hover {
+      background: ${colors.yellowDark};
+    }
+    `,
 };
 
 export const ButtonDiv = styled.button<ButtonDivProps>`
