@@ -7,7 +7,7 @@ interface ButtonDivProps {
 
 const buttonVariants = {
   primary: `
-    padding: ${rem(1)} ${rem(2.5)};
+    padding: ${rem(0.75)} ${rem(2)};
     background: ${colors.primary};
     ${border({ radius: rem(1) })};
     transition: all .2s;
@@ -28,8 +28,8 @@ const buttonVariants = {
     `,
 
   iconic: `
-    padding: ${rem(0.5)} ${rem(0.5)};
-    ${border({ radius: rem(0.5) })};
+    padding: ${rem(0.2)} ${rem(0.5)};
+    ${border({ radius: rem(0.2) })};
     background: ${colors.yellow};
     transition: all .2s;
     &: hover {

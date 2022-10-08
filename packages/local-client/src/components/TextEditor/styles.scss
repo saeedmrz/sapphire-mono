@@ -71,6 +71,14 @@
   color: #d4d4d4;
 }
 
+.text-editor.card .card-content .wmde-markdown-color {
+  min-height: 85px;
+  height: min-content;
+  border: 1px solid #4e4b4d;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .text-editor .w-md-editor-text-pre .bold {
   color: unset;
 }

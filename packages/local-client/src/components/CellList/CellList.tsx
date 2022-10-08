@@ -1,9 +1,9 @@
-import "./styles.css";
 import { Fragment, useEffect } from "react";
 import { useTypedSelector } from "hooks/use-typed-selector";
 import AddCell from "../AddCell/AddCell";
 import CellListItem from "../CellListItem/CellListItem";
 import { useActions } from "hooks/use-actions";
+import { CellListDiv } from "./styles";
 
 const CellList: React.FC = () => {
   const cells = useTypedSelector(({ cells: { order, data } }) =>
@@ -23,10 +23,10 @@ const CellList: React.FC = () => {
   ));
 
   return (
-    <div className="cell-list">
+    <CellListDiv>
       <AddCell forceVisible={cells.length === 0} previousCellId={null} />
       {renderedCells}
-    </div>
+    </CellListDiv>
   );
 };
 

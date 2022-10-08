@@ -1,4 +1,3 @@
-import "./styles.css";
 import { useEffect } from "react";
 import CodeEditor from "../CodeEditor/CodeEditor";
 import Preview from "../CodePreview/CodePreview";
@@ -7,6 +6,8 @@ import { Cell } from "state";
 import { useActions } from "hooks/use-actions";
 import { useTypedSelector } from "hooks/use-typed-selector";
 import { useCumulativeCode } from "hooks/use-cumulative-code";
+import { ProgressDiv, ResiableWrapper, Result } from "./styles";
+import Spinner from "components/common/Spinner/Spinner";
 
 interface CodeCellProps {
   cell: Cell;
@@ -32,31 +33,23 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
   return (
     <Resizable direction="vertical">
-      <div
-        style={{
-          height: "calc(100% - 10px)",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
+      <ResiableWrapper>
         <Resizable direction="horizontal">
           <CodeEditor
             initialValue={cell.content}
             onChange={(value) => updateCell(cell.id, value)}
           />
         </Resizable>
-        <div className="progress-wrapper">
+        <Result>
           {!bundle || bundle.loading ? (
-            <div className="progress-cover">
-              <progress className="progress is-small is-primary" max="100">
-                Loading
-              </progress>
-            </div>
+            <ProgressDiv>
+              <Spinner />
+            </ProgressDiv>
           ) : (
             <Preview code={bundle.code} bundlingError={bundle.err} />
           )}
-        </div>
-      </div>
+        </Result>
+      </ResiableWrapper>
     </Resizable>
   );
 };
