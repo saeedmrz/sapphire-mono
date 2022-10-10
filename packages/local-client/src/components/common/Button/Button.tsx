@@ -1,14 +1,15 @@
 import { ButtonDiv, ButtonIcon } from "./styles";
 
 interface ButtonProps {
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant: string;
   text?: string;
   icon?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ variant, text, icon }) => {
+const Button: React.FC<ButtonProps> = ({ variant, text, icon, onClick }) => {
   return (
-    <ButtonDiv variant={variant}>
+    <ButtonDiv onClick={onClick} variant={variant}>
       {icon && (
         <ButtonIcon>
           <i className={icon} />

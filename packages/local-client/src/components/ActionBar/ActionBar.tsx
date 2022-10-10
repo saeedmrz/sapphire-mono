@@ -1,4 +1,3 @@
-import "./styles.css";
 import { useActions } from "hooks/use-actions";
 import { ActionBarDiv } from "./styles";
 import Button from "components/common/Button/Button";
@@ -13,33 +12,23 @@ const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
 
   return (
     <ActionBarDiv>
-      <div onClick={() => moveCell(id, "up")}>
-        <Button variant="iconic" icon={icons.arrowUp}></Button>
-      </div>
-      <button
-        className="button is-primary is-small"
+      <Button
         onClick={() => moveCell(id, "up")}
-      >
-        <span className="icon">
-          <i className="fas fa-arrow-up"></i>
-        </span>
-      </button>
-      <button
-        className="button is-primary is-small"
+        variant="iconic"
+        icon={icons.arrowUp}
+      ></Button>
+
+      <Button
         onClick={() => moveCell(id, "down")}
-      >
-        <span className="icon">
-          <i className="fas fa-arrow-down"></i>
-        </span>
-      </button>
-      <button
-        className="button is-primary is-small"
+        variant="iconic"
+        icon={icons.arrowDown}
+      ></Button>
+
+      <Button
         onClick={() => deleteCell(id)}
-      >
-        <span className="icon">
-          <i className="fas fa-times"></i>
-        </span>
-      </button>
+        variant="iconic"
+        icon={icons.times}
+      ></Button>
     </ActionBarDiv>
   );
 };

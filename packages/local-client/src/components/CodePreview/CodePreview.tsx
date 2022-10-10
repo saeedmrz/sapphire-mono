@@ -1,5 +1,6 @@
-import "./styles.css";
+import "./styles.scss";
 import { useRef, useEffect } from "react";
+import { PreviewError } from "./styles";
 
 interface PreviewProps {
   code: string;
@@ -64,7 +65,7 @@ const Preview: React.FC<PreviewProps> = ({ code, bundlingError }) => {
         srcDoc={html}
         sandbox="allow-scripts"
       />
-      {bundlingError && <div className="preview-error">{bundlingError}</div>}
+      {bundlingError && <PreviewError>{bundlingError}</PreviewError>}
     </div>
   );
 };

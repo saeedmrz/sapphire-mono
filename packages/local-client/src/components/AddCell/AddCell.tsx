@@ -14,12 +14,21 @@ const AddCell: React.FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
   return (
     <AddCellDiv forceVisible={forceVisible}>
       <Divider></Divider>
-      <div onClick={() => insertCellAfter(previousCellId, "code")}>
-        <Button variant="primary" text="Code" icon={icons.plus} />
-      </div>
-      <div onClick={() => insertCellAfter(previousCellId, "text")}>
-        <Button variant="primary" text="Text" icon={icons.plus} />
-      </div>
+
+      <Button
+        onClick={() => insertCellAfter(previousCellId, "code")}
+        variant="primary"
+        text="Code"
+        icon={icons.plus}
+      />
+
+      <Button
+        onClick={() => insertCellAfter(previousCellId, "text")}
+        variant="primary"
+        text="Text"
+        icon={icons.plus}
+      />
+
       <Divider></Divider>
     </AddCellDiv>
   );
