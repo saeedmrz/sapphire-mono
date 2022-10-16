@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { store } from "state";
+import { store } from "store";
 import CellList from "components/CellList/CellList";
 import { Global } from "@emotion/react";
 import { bodyStyle, Main } from "styles/styles";

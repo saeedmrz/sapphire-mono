@@ -1,4 +1,5 @@
-import { useActions } from "hooks/use-actions";
+import { useAppDispatch } from "store/hooks";
+import { insertCellAfter } from "store/cellsSlice";
 import { AddCellDiv, Divider } from "./styles";
 import Button from "components/common/Button/Button";
 import { icons } from "styles/icons";
@@ -9,21 +10,35 @@ interface AddCellProps {
 }
 
 const AddCell: React.FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
-  const { insertCellAfter } = useActions();
+  const dispatch = useAppDispatch();
 
   return (
     <AddCellDiv forceVisible={forceVisible}>
       <Divider></Divider>
 
       <Button
-        onClick={() => insertCellAfter(previousCellId, "code")}
+        onClick={() =>
+          dispatch(
+            insertCellAfter({
+              id: previousCellId,
+              type: "code",
+            })
+          )
+        }
         variant="primary"
         text="Code"
         icon={icons.plus}
       />
 
       <Button
-        onClick={() => insertCellAfter(previousCellId, "text")}
+        onClick={() =>
+          dispatch(
+            insertCellAfter({
+              id: previousCellId,
+              type: "text",
+            })
+          )
+        }
         variant="primary"
         text="Text"
         icon={icons.plus}

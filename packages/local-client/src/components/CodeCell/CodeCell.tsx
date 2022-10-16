@@ -3,8 +3,9 @@ import CodeEditor from "../CodeEditor/CodeEditor";
 import Preview from "../CodePreview/CodePreview";
 import Resizable from "../Resisable/Resisable";
 import { Cell } from "state";
-import { useActions } from "hooks/use-actions";
-import { useTypedSelector } from "hooks/use-typed-selector";
+import { useAppDispatch, useAppSelector } from "store/hooks";
+import { createBundle } from "store/bundlesSlice";
+import { updateCell } from "store/cellsSlice";
 import { useCumulativeCode } from "hooks/use-cumulative-code";
 import { ProgressDiv, ResiableWrapper, Result } from "./styles";
 import Spinner from "components/common/Spinner/Spinner";
@@ -14,17 +15,17 @@ interface CodeCellProps {
 }
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
-  const { updateCell, createBundle } = useActions();
-  const bundle = useTypedSelector((state) => state.bundles[cell.id]);
+  const dispatch = useAppDispatch();
+  const bundle = useAppSelector((state) => state.bundles[cell.id]);
   const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cumulativeCode);
+      dispatch(createBundle({ cellId: cell.id, input: cumulativeCode }));
       return;
     }
     const timer = setTimeout(async () => {
-      createBundle(cell.id, cumulativeCode);
+      dispatch(createBundle({ cellId: cell.id, input: cumulativeCode }));
     }, 750);
 
     return () => clearTimeout(timer);
@@ -37,7 +38,9 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
         <Resizable direction="horizontal">
           <CodeEditor
             initialValue={cell.content}
-            onChange={(value) => updateCell(cell.id, value)}
+            onChange={(value) =>
+              dispatch(updateCell({ id: cell.id, content: value }))
+            }
           />
         </Resizable>
         <Result>
