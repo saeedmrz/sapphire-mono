@@ -9,8 +9,6 @@ import { Cell } from "store/Cell.types";
 const CellList: React.FC = () => {
   const newCells = useAppSelector(getSelectedCells);
   const cells = newCells.order.map((id: string) => newCells.data[id]);
-  console.log(newCells);
-  console.log(newCells.data);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

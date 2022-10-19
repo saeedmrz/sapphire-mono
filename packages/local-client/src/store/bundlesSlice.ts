@@ -1,5 +1,14 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  PayloadAction,
+  createAsyncThunk,
+  createSelector,
+} from "@reduxjs/toolkit";
 import bundle from "bundler";
+import { RootState } from "store";
+import cellsSlice, { getSelectedCells } from "./cellsSlice";
+import { insertCellAfter, updateCell } from "./cellsSlice";
+import { useAppSelector } from "./hooks";
 
 interface BundlesState {
   [key: string]:
@@ -25,7 +34,17 @@ export const createBundle = createAsyncThunk(
   "bundles/createBundle",
   async ({ cellId, input }: { cellId: string; input: string }) => {
     const result = await bundle(input);
+    console.log(result);
     return { cellId, result };
+  }
+);
+
+export const createBundles = createAsyncThunk(
+  "bundles/createBundles",
+  async ({ input, cellId }: { input: string; cellId: string }) => {
+    const result = await bundle(input);
+    console.log({ result, cellId });
+    return { result, cellId };
   }
 );
 
@@ -52,34 +71,32 @@ export const bundlesSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(
-      createBundle.pending,
-      (
-        state: BundlesState,
-        action: PayloadAction<BundleAction | undefined>
-      ) => {
-        state[action.payload!.cellId] = {
-          loading: true,
-          code: "",
-          err: "",
-        };
-      }
-    );
+    builder.addCase(updateCell, (state, action) => {});
 
-    builder.addCase(
-      createBundle.fulfilled,
-      (
-        state: BundlesState,
-        action: PayloadAction<BundleAction | undefined>
-      ) => {
-        state[action.payload!.cellId] = {
-          loading: false,
-          code: action.payload!.result.code,
-          err: action.payload!.result.err,
-        };
-      }
-    );
+    builder.addCase(createBundles.pending, (state, action) => {
+      console.log("bundle pending");
+      state[action.payload.cellId] = {
+        loading: true,
+        code: "",
+        err: "",
+      };
+      console.log("bundle pending finished");
+    });
+
+    builder.addCase(createBundles.fulfilled, (state, action) => {
+      console.log("bundle fullfilled");
+      state[action.payload.cellId] = {
+        loading: false,
+        code: action.payload.result!.code,
+        err: action.payload.result!.err,
+      };
+    });
   },
 });
 
 export const { bundleStart, bundleComplete } = bundlesSlice.actions;
+
+export const getSelectedBundle = createSelector(
+  (state: RootState) => state.bundles,
+  (bundles) => bundles
+);

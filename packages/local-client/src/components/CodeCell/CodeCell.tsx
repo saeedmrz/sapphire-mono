@@ -4,7 +4,11 @@ import Preview from "../CodePreview/CodePreview";
 import Resizable from "../Resisable/Resisable";
 import { Cell } from "state";
 import { useAppDispatch, useAppSelector } from "store/hooks";
-import { createBundle } from "store/bundlesSlice";
+import {
+  createBundle,
+  getSelectedBundle,
+  createBundles,
+} from "store/bundlesSlice";
 import { updateCell } from "store/cellsSlice";
 import { useCumulativeCode } from "hooks/use-cumulative-code";
 import { ProgressDiv, ResiableWrapper, Result } from "./styles";
@@ -16,16 +20,17 @@ interface CodeCellProps {
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const dispatch = useAppDispatch();
-  const bundle = useAppSelector((state) => state.bundles[cell.id]);
+  const state = useAppSelector(getSelectedBundle);
+  const bundle = state.bundle;
   const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     if (!bundle) {
-      dispatch(createBundle({ cellId: cell.id, input: cumulativeCode }));
+      dispatch(createBundles({ input: cumulativeCode, cellId: cell.id }));
       return;
     }
     const timer = setTimeout(async () => {
-      dispatch(createBundle({ cellId: cell.id, input: cumulativeCode }));
+      dispatch(createBundles({ input: cumulativeCode, cellId: cell.id }));
     }, 750);
 
     return () => clearTimeout(timer);
