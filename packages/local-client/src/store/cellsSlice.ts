@@ -36,6 +36,17 @@ export const fetchCells = createAsyncThunk("cells/fetchCells", async () => {
   return data;
 });
 
+export const saveCells = createAsyncThunk(
+  "cells/saveCells",
+  async (_, { getState }) => {
+    console.log("savecells called");
+    const state = getState() as { cells: CellsState };
+    const { order, data } = state.cells;
+    const cells = order.map((id) => data[id]);
+    await axios.post("/cells", { cells });
+  }
+);
+
 export const cellsSlice = createSlice({
   name: "cells",
   initialState,

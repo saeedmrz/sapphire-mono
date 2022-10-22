@@ -62,7 +62,7 @@ var createCellsRouter = function (filename, dir) {
                     return [3 /*break*/, 6];
                 case 2:
                     error_1 = _a.sent();
-                    if (!(error_1 === "ENOENT")) return [3 /*break*/, 4];
+                    if (!(error_1.code === "ENOENT")) return [3 /*break*/, 4];
                     // Add code to create a file and add default cells
                     return [4 /*yield*/, promises_1.default.writeFile(fullPath, "[]", "utf-8")];
                 case 3:

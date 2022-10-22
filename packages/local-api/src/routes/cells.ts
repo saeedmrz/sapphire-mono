@@ -21,13 +21,13 @@ export const createCellsRouter = (filename: string, dir: string) => {
       // Read the file
       const result = await fs.readFile(fullPath, { encoding: "utf-8" });
       res.send(JSON.parse(result));
-    } catch (error) {
+    } catch (error: any) {
       // If read throws error
       // Inspect the error, see if it says that the file doesn't exist
       // Parse a list of cells out of it
       // Send list of cells back to browser
       // ENOENT (error no entity => that file doesnt exist)
-      if (error === "ENOENT") {
+      if (error.code === "ENOENT") {
         // Add code to create a file and add default cells
         await fs.writeFile(fullPath, "[]", "utf-8");
         res.send([]);

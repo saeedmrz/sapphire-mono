@@ -34,7 +34,6 @@ export const createBundle = createAsyncThunk(
   "bundles/createBundle",
   async ({ cellId, input }: { cellId: string; input: string }) => {
     const result = await bundle(input);
-    console.log(result);
     return { cellId, result };
   }
 );
@@ -43,7 +42,6 @@ export const createBundles = createAsyncThunk(
   "bundles/createBundles",
   async ({ input, cellId }: { input: string; cellId: string }) => {
     const result = await bundle(input);
-    console.log({ result, cellId });
     return { result, cellId };
   }
 );
@@ -74,17 +72,14 @@ export const bundlesSlice = createSlice({
     builder.addCase(updateCell, (state, action) => {});
 
     builder.addCase(createBundles.pending, (state, action) => {
-      console.log("bundle pending");
-      state[action.payload.cellId] = {
+      state[""] = {
         loading: true,
         code: "",
         err: "",
       };
-      console.log("bundle pending finished");
     });
 
     builder.addCase(createBundles.fulfilled, (state, action) => {
-      console.log("bundle fullfilled");
       state[action.payload.cellId] = {
         loading: false,
         code: action.payload.result!.code,
@@ -97,6 +92,6 @@ export const bundlesSlice = createSlice({
 export const { bundleStart, bundleComplete } = bundlesSlice.actions;
 
 export const getSelectedBundle = createSelector(
-  (state: RootState) => state.bundles,
-  (bundles) => bundles
+  (state: RootState) => state,
+  (state) => state.bundles
 );
