@@ -15,16 +15,15 @@ import {
 } from "./cellsSlice";
 
 const listenerMiddleware = createListenerMiddleware();
-
+let timer: any;
 listenerMiddleware.startListening({
   matcher: isAnyOf(moveCell, updateCell, deleteCell, insertCellAfter),
-  effect: async (action, listenerAi) => {
-    let timer: any;
+  effect: async (action, listenerApi) => {
     if (timer) {
       clearTimeout(timer);
     }
     timer = setTimeout(() => {
-      listenerAi.dispatch(saveCells());
+      listenerApi.dispatch(saveCells());
     }, 250);
   },
 });

@@ -13,7 +13,6 @@ const cardVariants = {
           `,
   small: `
       height: ${rem(17)};
-      width: ${rem(20)};
       `,
 };
 
