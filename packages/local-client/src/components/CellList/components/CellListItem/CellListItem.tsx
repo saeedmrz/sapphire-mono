@@ -1,7 +1,7 @@
-import { Cell } from "store/Cell.types";
+import { Cell } from "types/Cell.types";
 import CodeCell from "../../../CodeCell/CodeCell";
 import TextEditor from "../../../TextEditor/TextEditor";
-import ActionBar from "../../../ActionBar/ActionBar";
+import ActionBar from "../ActionBar/ActionBar";
 import { ActionBarWrapper, CellItem } from "./CellListItem.style";
 
 interface CellListItemProps {

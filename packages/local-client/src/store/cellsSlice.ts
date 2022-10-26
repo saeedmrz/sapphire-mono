@@ -6,7 +6,7 @@ import {
   createAsyncThunk,
 } from "@reduxjs/toolkit";
 import { RootState } from "store";
-import { Cell, CellTypes } from "./Cell.types";
+import { Cell, CellTypes } from "../types/Cell.types";
 import axios from "axios";
 
 const createCell = (type: CellTypes): Cell => ({
@@ -54,21 +54,6 @@ export const cellsSlice = createSlice({
     saveCellsError: (state, action): any => {
       state.error = action.payload;
     },
-    // fetchCells: (state, action) => {
-    //   state.loading = true;
-    //   state.error = null;
-    // },
-    // fetchCellsComplete: (state, action: PayloadAction<Cell[]>) => {
-    //   state.order = action.payload.map((cell) => cell.id);
-    //   state.data = action.payload.reduce((acc, cell) => {
-    //     acc[cell.id] = cell;
-    //     return acc;
-    //   }, {} as CellsState["data"]);
-    // },
-    // fetchCellsError: (state, action) => {
-    //   state.loading = false;
-    //   state.error = action.payload;
-    // },
     updateCell: (
       state,
       action: PayloadAction<{ id: string; content: string }>

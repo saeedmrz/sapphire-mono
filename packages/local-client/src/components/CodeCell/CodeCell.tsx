@@ -2,13 +2,12 @@ import { useEffect } from "react";
 import CodeEditor from "./components/CodeEditor/CodeEditor";
 import Preview from "./components/CodePreview/CodePreview";
 import Resizable from "../common/Resisable/Resisable";
-import { Cell } from "store/Cell.types";
+import { Cell } from "types/Cell.types";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
-  createBundle,
   getSelectedBundle,
   createBundles,
-} from "store/bundlesSlice";
+} from "components/CodeCell/bundlesSlice";
 import { updateCell } from "store/cellsSlice";
 import { useCumulativeCode } from "hooks/use-cumulative-code";
 import { ProgressDiv, ResiableWrapper, Result } from "./CodeCell.style";
@@ -35,7 +34,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cumulativeCode, cell.id, createBundle]);
+  }, [cumulativeCode, cell.id, createBundles]);
 
   return (
     <Resizable direction="vertical">

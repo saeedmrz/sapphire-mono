@@ -4,7 +4,7 @@ import CellListItem from "./components/CellListItem/CellListItem";
 import { CellListDiv } from "./CellList.style";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { fetchCells, getSelectedCells } from "store/cellsSlice";
-import { Cell } from "store/Cell.types";
+import { Cell } from "types/Cell.types";
 
 const CellList: React.FC = () => {
   const newCells = useAppSelector(getSelectedCells);

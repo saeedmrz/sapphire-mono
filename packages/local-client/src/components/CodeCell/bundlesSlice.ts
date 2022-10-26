@@ -5,7 +5,6 @@ import {
 } from "@reduxjs/toolkit";
 import bundle from "bundler";
 import { RootState } from "store";
-import { updateCell } from "./cellsSlice";
 
 interface BundlesState {
   [key: string]:
@@ -17,23 +16,7 @@ interface BundlesState {
     | undefined;
 }
 
-type BundleAction = {
-  cellId: string;
-  result: {
-    code: string;
-    err: string;
-  };
-};
-
 const initialState: BundlesState = {};
-
-export const createBundle = createAsyncThunk(
-  "bundles/createBundle",
-  async ({ cellId, input }: { cellId: string; input: string }) => {
-    const result = await bundle(input);
-    return { cellId, result };
-  }
-);
 
 export const createBundles = createAsyncThunk(
   "bundles/createBundles",
@@ -49,8 +32,6 @@ export const bundlesSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(updateCell, (state, action) => {});
-
     builder.addCase(createBundles.pending, (state, action) => {
       state[""] = {
         loading: true,
