@@ -1,5 +1,5 @@
 import styled from "@emotion/styled/macro";
-import { colors, fontSizes, font, rem, px, border, flex } from "styles/styles";
+import { px, flex } from "styles/styles";
 
 export const ActionBarDiv = styled.div`
   position: absolute;

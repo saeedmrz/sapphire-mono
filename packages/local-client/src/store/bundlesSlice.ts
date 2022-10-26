@@ -1,14 +1,11 @@
 import {
   createSlice,
-  PayloadAction,
   createAsyncThunk,
   createSelector,
 } from "@reduxjs/toolkit";
 import bundle from "bundler";
 import { RootState } from "store";
-import cellsSlice, { getSelectedCells } from "./cellsSlice";
-import { insertCellAfter, updateCell } from "./cellsSlice";
-import { useAppSelector } from "./hooks";
+import { updateCell } from "./cellsSlice";
 
 interface BundlesState {
   [key: string]:
@@ -49,24 +46,7 @@ export const createBundles = createAsyncThunk(
 export const bundlesSlice = createSlice({
   name: "bundles",
   initialState,
-  reducers: {
-    bundleStart: (state, action) => {
-      const { cellId } = action.payload;
-      state[cellId] = {
-        loading: true,
-        code: "",
-        err: "",
-      };
-    },
-    bundleComplete: (state, action) => {
-      const { code, err } = action.payload.bundle;
-      state[action.payload.cellId] = {
-        loading: false,
-        code,
-        err,
-      };
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder.addCase(updateCell, (state, action) => {});
@@ -88,8 +68,6 @@ export const bundlesSlice = createSlice({
     });
   },
 });
-
-export const { bundleStart, bundleComplete } = bundlesSlice.actions;
 
 export const getSelectedBundle = createSelector(
   (state: RootState) => state,

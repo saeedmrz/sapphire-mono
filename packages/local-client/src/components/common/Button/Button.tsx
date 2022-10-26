@@ -1,4 +1,4 @@
-import { ButtonDiv, ButtonIcon } from "./styles";
+import { ButtonDiv, ButtonIcon } from "./Button.style";
 
 interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

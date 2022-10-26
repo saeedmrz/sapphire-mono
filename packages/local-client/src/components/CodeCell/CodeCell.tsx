@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import CodeEditor from "../CodeEditor/CodeEditor";
-import Preview from "../CodePreview/CodePreview";
-import Resizable from "../Resisable/Resisable";
+import CodeEditor from "./components/CodeEditor/CodeEditor";
+import Preview from "./components/CodePreview/CodePreview";
+import Resizable from "../common/Resisable/Resisable";
 import { Cell } from "store/Cell.types";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
@@ -9,9 +9,9 @@ import {
   getSelectedBundle,
   createBundles,
 } from "store/bundlesSlice";
-import { updateCell, saveCells } from "store/cellsSlice";
+import { updateCell } from "store/cellsSlice";
 import { useCumulativeCode } from "hooks/use-cumulative-code";
-import { ProgressDiv, ResiableWrapper, Result } from "./styles";
+import { ProgressDiv, ResiableWrapper, Result } from "./CodeCell.style";
 import Spinner from "components/common/Spinner/Spinner";
 
 interface CodeCellProps {

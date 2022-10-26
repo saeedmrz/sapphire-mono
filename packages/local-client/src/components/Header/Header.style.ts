@@ -1,15 +1,6 @@
 import styled from "@emotion/styled/macro";
 import { headLeftCardAnim, headRightCardAnim } from "styles/animations";
-import {
-  colors,
-  spacing,
-  fontSizes,
-  fonts,
-  rem,
-  px,
-  border,
-  flex,
-} from "styles/styles";
+import { rem, flex } from "styles/styles";
 
 export const HeaderDiv = styled.div`
   ${flex({ gap: 10 })};

@@ -1,4 +1,4 @@
-import { SpinnerDiv } from "./styles";
+import { SpinnerDiv } from "./Spinner.style";
 
 const Spinner = () => {
   return <SpinnerDiv />;

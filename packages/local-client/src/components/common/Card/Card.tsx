@@ -4,7 +4,7 @@ import {
   CardContentTitle,
   CardDiv,
   CardImageContainer,
-} from "./styles";
+} from "./Card.style";
 
 import { ReactComponent as LogoImage } from "assets/images/logo.svg";
 

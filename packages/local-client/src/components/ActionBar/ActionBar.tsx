@@ -1,6 +1,6 @@
 import { useAppDispatch } from "store/hooks";
 import { moveCell, deleteCell } from "store/cellsSlice";
-import { ActionBarDiv } from "./ActionBar.styles";
+import { ActionBarDiv } from "./ActionBar.style";
 import Button from "components/common/Button/Button";
 import { icons } from "styles/icons";
 

@@ -1,6 +1,6 @@
-import "./styles.scss";
+import "./CodePreview.style.scss";
 import { useRef, useEffect } from "react";
-import { PreviewError } from "./styles";
+import { PreviewError } from "./CodePreview.style";
 
 interface PreviewProps {
   code: string;

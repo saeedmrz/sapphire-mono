@@ -1,7 +1,7 @@
-import "./styles.scss";
+import "./TextEditor.style.scss";
 import MDEditor from "@uiw/react-md-editor";
 import { useState, useEffect, useRef } from "react";
-import { Cell } from "state";
+import { Cell } from "store/Cell.types";
 import { useAppDispatch } from "store/hooks";
 import { updateCell } from "store/cellsSlice";
 

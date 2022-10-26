@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
-import AddCell from "../AddCell/AddCell";
-import CellListItem from "../CellListItem/CellListItem";
-import { CellListDiv } from "./styles";
+import AddCell from "./components/AddCell/AddCell";
+import CellListItem from "./components/CellListItem/CellListItem";
+import { CellListDiv } from "./CellList.style";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { fetchCells, getSelectedCells } from "store/cellsSlice";
 import { Cell } from "store/Cell.types";

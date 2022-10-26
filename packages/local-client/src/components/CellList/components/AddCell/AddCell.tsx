@@ -1,6 +1,6 @@
 import { useAppDispatch } from "store/hooks";
 import { insertCellAfter } from "store/cellsSlice";
-import { AddCellDiv, Divider } from "./styles";
+import { AddCellDiv, Divider } from "./AddCell.style";
 import Button from "components/common/Button/Button";
 import { icons } from "styles/icons";
 

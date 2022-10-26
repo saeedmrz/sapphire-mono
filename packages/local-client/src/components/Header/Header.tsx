@@ -1,4 +1,4 @@
-import { HeaderDiv, HeaderLeftCard, HeaderRightCard } from "./styles";
+import { HeaderDiv, HeaderLeftCard, HeaderRightCard } from "./Header.style";
 import Card from "components/common/Card/Card";
 
 const title = "Train";

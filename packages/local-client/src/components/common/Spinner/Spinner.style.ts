@@ -1,15 +1,6 @@
 import styled from "@emotion/styled/macro";
 import { rotate } from "styles/animations";
-import {
-  colors,
-  fontSizes,
-  font,
-  rem,
-  px,
-  border,
-  flex,
-  size,
-} from "styles/styles";
+import { colors, px, border, size } from "styles/styles";
 
 export const SpinnerDiv = styled.div`
   display: inline-block;

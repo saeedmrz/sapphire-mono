@@ -1,6 +1,6 @@
 import styled from "@emotion/styled/macro";
 import { cellItemAnim } from "styles/animations";
-import { colors, fontSizes, font, rem, px, border, flex } from "styles/styles";
+import { px } from "styles/styles";
 
 export const CellItem = styled.div`
   margin: ${px(20)} 0;

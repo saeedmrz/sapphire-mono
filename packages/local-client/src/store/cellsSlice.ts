@@ -131,8 +131,6 @@ export const cellsSlice = createSlice({
 
 export const {
   saveCellsError,
-  // fetchCellsComplete,
-  // fetchCellsError,
   updateCell,
   deleteCell,
   moveCell,

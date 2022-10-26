@@ -1,6 +1,6 @@
 import styled from "@emotion/styled/macro";
 import { fadeIn } from "styles/animations";
-import { colors, fontSizes, font, rem, px, border, flex } from "styles/styles";
+import { colors, flex } from "styles/styles";
 
 export const ResiableWrapper = styled.div`
   height: calc(100% - 10px);
