@@ -11,16 +11,16 @@ export const spacing = {
 };
 
 export const colors = {
-  primary: "#78AF9F",
+  primary: "hsl(163, 26%, 58%)",
   primaryDark: "hsl(179, 46%, 54%)",
-  orange: "#D36E2D",
+  orange: "hsl(23, 65%, 50%)",
   yellow: "hsl(34, 96%, 70%)",
   yellowDark: "hsl(34, 96%, 65%)",
   purple: "hsl(268, 38%, 69%)",
-  backColor: "#584b4f",
-  titleColor: "#ffd152",
-  borderColor: "#4e4b4d",
-  text: "#efdab9",
+  backColor: "hsl(342, 8%, 32%)",
+  titleColor: "hsl(44, 100%, 66%)",
+  borderColor: "hsl(320, 2%, 30%)",
+  text: "hsl(37, 63%, 83%)",
   white: "#ffffff",
   black: "#000000",
 };

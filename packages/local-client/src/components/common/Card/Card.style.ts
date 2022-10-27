@@ -32,6 +32,7 @@ export const CardContent = styled.div`
   left: 0;
   height: 100%;
   width: 90%;
+  line-height: ${px(20)};
 `;
 
 interface CardContentTitleProps {
@@ -53,8 +54,9 @@ export const CardImageContainer = styled.div`
   ${flex({ justify: "center", align: "center" })}
   width: 100%;
   height: 100%;
-  & svg {
+  & img {
     display: block;
-    width: 80%;
+    max-width: 60%;
+    min-width: ${px(160)};
   }
 `;

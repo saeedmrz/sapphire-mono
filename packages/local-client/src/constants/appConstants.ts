@@ -1,7 +1,9 @@
-export const APP_NAME = "Training";
+export const APP_NAME = "Code Class";
 
-export const APP_DESCRIPTION =
-  "This application helps you to write code and write documentation for that code. The application compiler is so fast. You can add text boxes and code boxes as many as you like.";
+export const APP_DESCRIPTION = `Code Class consists of two features, adding a 
+block of code then write documentations for that. This is useful for personal 
+usage, for taking notes, using inside classes. The application is so fast, using 
+technologies like React, ESbuild as Bundler.`;
 
 export const APP_HTML_CODE = `
 <html>

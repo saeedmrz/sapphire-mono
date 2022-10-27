@@ -6,7 +6,7 @@ import {
   CardImageContainer,
 } from "./Card.style";
 
-import { ReactComponent as LogoImage } from "assets/images/logo.svg";
+import logo from "assets/images/logo.png";
 
 interface CardProps {
   variant: string;
@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({
     <CardDiv variant={variant} bgColor={bgColor}>
       {withImage && (
         <CardImageContainer>
-          <LogoImage />
+          <img src={logo} />
         </CardImageContainer>
       )}
       {withContent && (
