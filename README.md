@@ -8,7 +8,7 @@ The application consists of two branches, master and toolkit. The only differenc
 ###### Master
 For the master branch I have used Redux.
 ###### Toolkit
-And for the toolkit I have used Redux Toolkit.
+For the toolkit I have used Redux Toolkit and changed the Client architecture.
 
 ## Technologies
 
