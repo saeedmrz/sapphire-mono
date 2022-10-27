@@ -1,9 +1,6 @@
 import { HeaderDiv, HeaderLeftCard, HeaderRightCard } from "./Header.style";
 import Card from "components/common/Card/Card";
-
-const title = "Train";
-const contenctText =
-  "This application helps you to write code and write documentation for that code. The application compiler is so fast. You can add text boxes and code boxes as many as you like.";
+import { APP_NAME, APP_DESCRIPTION } from "constants/appConstants";
 
 const Header: React.FC = () => {
   return (
@@ -13,8 +10,8 @@ const Header: React.FC = () => {
           variant="large"
           bgColor="primary"
           withContent={true}
-          title={title}
-          text={contenctText}
+          title={APP_NAME}
+          text={APP_DESCRIPTION}
           titleColor="titleColor"
         />
       </HeaderLeftCard>

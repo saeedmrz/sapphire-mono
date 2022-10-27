@@ -1,6 +1,6 @@
 import { Cell } from "types/Cell.types";
-import CodeCell from "../../../CodeCell/CodeCell";
-import TextEditor from "../../../TextEditor/TextEditor";
+import CodeCell from "components/CodeCell/CodeCell";
+import TextEditor from "components/TextEditor/TextEditor";
 import ActionBar from "../ActionBar/ActionBar";
 import { ActionBarWrapper, CellItem } from "./CellListItem.style";
 

@@ -126,5 +126,3 @@ export const getSelectedCells = createSelector(
   (state: RootState) => state.cells,
   (cells) => cells
 );
-
-export default cellsSlice.reducer;

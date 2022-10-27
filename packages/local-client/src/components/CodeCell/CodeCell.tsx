@@ -4,10 +4,7 @@ import Preview from "./components/CodePreview/CodePreview";
 import Resizable from "../common/Resisable/Resisable";
 import { Cell } from "types/Cell.types";
 import { useAppDispatch, useAppSelector } from "store/hooks";
-import {
-  getSelectedBundle,
-  createBundles,
-} from "components/CodeCell/bundlesSlice";
+import { getSelectedBundle, createBundles } from "store/bundlesSlice";
 import { updateCell } from "store/cellsSlice";
 import { useCumulativeCode } from "hooks/use-cumulative-code";
 import { ProgressDiv, ResiableWrapper, Result } from "./CodeCell.style";

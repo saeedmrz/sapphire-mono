@@ -26,11 +26,6 @@ const bundle = async (rawCode: string) => {
       jsxFragment: "_React.Fragment",
     });
 
-    // If sth goes correct and bundle user's code we're going to return a string
-    // And if sth goes incorrectly we also return a string / it is cofusing for
-    // Us to deside wether or not the string that we are receiving is saying that
-    // Everything went correctly or sth went incorrectly so instead of string we're
-    // Going to return an object
     return {
       code: result.outputFiles[0].text,
       err: "",

@@ -4,7 +4,7 @@ import {
   getDefaultMiddleware,
   isAnyOf,
 } from "@reduxjs/toolkit";
-import { bundlesSlice } from "../components/CodeCell/bundlesSlice";
+import { bundlesSlice } from "./bundlesSlice";
 import {
   cellsSlice,
   saveCells,
